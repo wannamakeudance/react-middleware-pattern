@@ -11,9 +11,10 @@ const middleware1 = store => next => action => {};
 applyMiddleware(store, middleware1, middleware2, ..);
 ```
 
-## Step2. The essence of creating middlewares is to execute function after dispatch but before reducers.Hence, we can cover the 'store.dispatch' by what we want to add and after that execute the old 'store.dispatch'.
+## Step2. The essence of creating middlewares is to execute function after dispatch but before reducers.Hence, we can cover the 'store.dispatch' by what we want to add and then execute the old 'store.dispatch'.
 
 ``` javascript
+// the old store.dispatch
 const next = store.dispatch;
 store.dispatch = () => {
     // TODO: execute the content of middleware function
